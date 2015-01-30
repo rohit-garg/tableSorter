@@ -38,7 +38,7 @@
             if (typeof colNum == "undefined") {
                 colNum = currentSortedCol;
             }
-            
+
             eleRows.sort(function (a, b) {
                 var fstEle = $(a).children('td').eq(colNum);
                 var secEle = $(b).children('td').eq(colNum);
@@ -77,9 +77,13 @@
                     }
                 }
             });
-            
+
             currentSortedCol = colNum;
             eleBody.append(eleRows);
+        };
+
+        this.refresh = function () {
+            $this.sortCol();
         };
 
         var addArrows = function () {
