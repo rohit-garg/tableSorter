@@ -83,7 +83,12 @@
         };
 
         this.refresh = function () {
-            $this.sortCol();
+            var $sortedCol = $eleHeads.filter('.' + css.sortOrder[0] + ', .' + css.sortOrder[1]);
+            if($sortedCol.length > 0) {
+                var order = $sortedCol.data('sortOrder');
+                var currentSortedCol = $sortedCol.index();
+                $this.sortCol(currentSortedCol, order);
+            }
         };
 
         var addArrows = function () {
